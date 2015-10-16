@@ -13,8 +13,6 @@ module.exports = {
 					if(err){
 						res.notFound(err);
 					}
-					if(typeof user.firstName == 'undefined'){ user.firstName = ''}
-					if(typeof user.lastName == 'undefined'){ user.lastName = ''}
 					var data = {
 						user: user
 					};
@@ -23,13 +21,14 @@ module.exports = {
 				})
 	},
 	update: function(req,res){
-		User.update({email: req.user.email}, [{firstName: req.param('firstName')}, {lastName: req.param('lastName')}])
+		debugger;
+		User.update({email: req.user.email}, req.body)
 				.exec(function(err, updated){
 					 if(err){
 						 res.serverError(err);
 					 }
 			 	 		sails.log('User update with first and last name to ' + updated[0].firstName + ' and ' + updated[0].lastName);
-						res.redirect('/Profile/edit');
+						res.view('./Profile/edit', {user: updated[0]});
 		 		})
 
 	}

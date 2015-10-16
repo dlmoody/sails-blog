@@ -10,17 +10,21 @@ module.exports = {
   attributes: {
     username : {
       type: 'string',
-      unique: true
+      unique: true,
+      defaultsTo: ''
     },
     email : {
       type: 'email',
-      unique: true
+      unique: true,
+      defaultsTo: ''
     },
     firstName: {
-      type: 'string'
+      type: 'string',
+      defaultsTo: ''
     },
     lastName: {
-      type: 'string'
+      type: 'string',
+      defaultsTo: ''
     },
     entries:{
       collection: 'Entry',

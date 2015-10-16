@@ -39,5 +39,8 @@
     "url": "git://github.com/anonymous node/sails user/Blog.git"
   },
   "author": "anonymous node/sails user",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "jspm": "^0.16.12"
+  }
 }
